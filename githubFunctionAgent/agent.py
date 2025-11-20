@@ -9,9 +9,8 @@ load_dotenv()
 GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
-# ------------------------------
 # Create Repository Tool
-# ------------------------------
+
 def github_create_repo_tool(repo_name: str, description: str = "", private: bool = True):
     """Creates a new GitHub repository."""
 
@@ -19,7 +18,7 @@ def github_create_repo_tool(repo_name: str, description: str = "", private: bool
         print("Error: GitHub token not found in environment.", file=sys.stderr)
         return
 
-    api_url = "https://api.github.com/user/repos"  # Correct URL
+    api_url = "https://api.github.com/user/repos" 
 
     headers = {
         "Authorization": f"token {GITHUB_TOKEN}",
@@ -55,9 +54,8 @@ def github_create_repo_tool(repo_name: str, description: str = "", private: bool
         print(f"Unexpected error: {e}", file=sys.stderr)
 
 
-# ------------------------------
 # Delete Repository Tool
-# ------------------------------
+
 def github_delete_repo_tool(repo_name: str):
     """Deletes a GitHub repository."""
 
@@ -98,9 +96,8 @@ def github_delete_repo_tool(repo_name: str):
         print(f"Unexpected error: {e}", file=sys.stderr)
 
 
-# ------------------------------
 # Root Agent
-# ------------------------------
+
 from google.adk.agents import Agent
 
 root_agent = Agent(
